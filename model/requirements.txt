@@ -1,0 +1,7 @@
+astroNN==1.0.1
+h5py==3.6.0
+scikit-learn==1.0.1
+numpy==1.21.4
+matplotlib==3.5.0
+tensorflow==2.7.0
+keras==2.7.0

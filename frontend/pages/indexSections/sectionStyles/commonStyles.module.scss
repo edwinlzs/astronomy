@@ -1,0 +1,35 @@
+.pageWrap {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+}
+
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    & .pageTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        & .pageTitleText {
+            font-size: 2.5rem;
+        }
+
+        & .pageSubtitleText {
+            text-align: center;
+            padding: .5rem 10% 1rem;
+        }
+    }
+
+    & .pageContent {
+        padding: 1rem 10% 0;
+    }
+}

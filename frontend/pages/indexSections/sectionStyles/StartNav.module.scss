@@ -1,0 +1,17 @@
+.startNav {
+    // animation: appear 1.3s;
+
+    & .startNavTitle {
+        font-family: 'Forum', cursive;
+        display: flex;
+        flex-direction: column;
+    
+        & .header {
+            font-size: 5.5rem;
+        }
+    
+        & .subheader {
+            font-size: 1.5rem;
+        }
+    }
+}
