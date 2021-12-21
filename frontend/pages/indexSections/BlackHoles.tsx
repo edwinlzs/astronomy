@@ -4,22 +4,19 @@ import { m } from 'framer-motion';
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import FlipCard from '../../components/FlipCard/FlipCard';
 
-import { useGlobalBackgroundCoords } from '../../hooks/useGlobalBackgroundCenterCoords';
 import styles from './sectionStyles/BlackHoles.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
 import { sectionProps } from '../index';
 
 import svgBlackHole from '../../assets/svgBlackHole.svg';
-import webmBlackHoleMerger from '../../assets/webmBlackHoleMerger.webm'
-import { slideBackground } from '../../lib/animations';
+import albertEinstein from '../../assets/albertEinstein.jpg';
+import stephenHawking from '../../assets/stephenHawking.jpeg';
 
 const BlackHoles = ({
     setActiveSection,
-    setTransition,
+    handleTransition,
     animation
 }: sectionProps) => {
-    const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
-
     return (
         <m.div
             key="blackHoles"
@@ -33,7 +30,7 @@ const BlackHoles = ({
             <div className={commonStyles.page}>
 
                 <div className={commonStyles.pageTitle}>
-                    <Image src={svgBlackHole} alt="" width={220} height={220} />
+                    <Image src={svgBlackHole} alt="" width={160} height={160} />
                     <div className={commonStyles.pageTitleText}>
                         Black Holes
                     </div>
@@ -48,9 +45,15 @@ const BlackHoles = ({
 
                 <div className={commonStyles.pageContent}>
                     <FlipCard
-                        front={
-                            <>Hello</>
+                        overlay="How did we discover Black Holes?"
+                        front={albertEinstein}
+                        back={
+                            <>World</>
                         }
+                    />
+                    <FlipCard
+                        overlay="Do Black Holes live forever?"
+                        front={stephenHawking}
                         back={
                             <>World</>
                         }
@@ -60,12 +63,7 @@ const BlackHoles = ({
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('StartNav')
-                        setTransition('slideDown')
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'down'
-                        })
+                        handleTransition('slideDown');
                     }}
                     text="HOME"
                     position="top"

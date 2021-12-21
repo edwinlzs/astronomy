@@ -3,20 +3,17 @@ import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 
-import { useGlobalBackgroundCoords } from '../../hooks/useGlobalBackgroundCenterCoords';
 import styles from './sectionStyles/Galaxies.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
 import { sectionProps } from '../index';
 
 import pngGalaxy from '../../assets/pngGalaxy.png';
-import { slideBackground } from '../../lib/animations';
 
 const Galaxies = ({
     setActiveSection,
-    setTransition,
+    handleTransition,
     animation
 }: sectionProps) => {
-    const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
 
     return (
             <m.div
@@ -49,12 +46,7 @@ const Galaxies = ({
                     <ArrowButton
                     onClick={() => {
                         setActiveSection('StartNav')
-                        setTransition('slideRight')
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'right'
-                        })
+                        handleTransition('slideRight');
                     }}
                     text="HOME"
                     position="left"

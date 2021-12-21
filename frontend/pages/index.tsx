@@ -6,6 +6,7 @@ import { useGlobalMouseMove } from '../hooks/useGlobalMouseMove';
 import { useGlobalBackgroundCoords } from '../hooks/useGlobalBackgroundCenterCoords';
 import styles from '../styles/Home.module.scss';
 import { Animation, animations } from '../lib/framerAnimations';
+import { slideBackground } from '../lib/animations';
 
 import StartNav from './indexSections/StartNav';
 import BlackHoles from './indexSections/BlackHoles';
@@ -15,13 +16,13 @@ import Meteors from './indexSections/Meteors';
 
 export type sectionProps = {
   setActiveSection: Dispatch<SetStateAction<string>>;
-  setTransition: Dispatch<SetStateAction<string>>;
+  handleTransition: (direction: string) => void;
   animation: Animation;
 }
 
 const Home: NextPage = () => {
   const [mouseX, mouseY] = useGlobalMouseMove();
-  const [backgroundCoords] = useGlobalBackgroundCoords();
+  const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
   const [activeSection, setActiveSection] = useState<string>('StartNav');
   const [transition, setTransition] = useState<string>('slideUp');
 
@@ -36,6 +37,15 @@ const Home: NextPage = () => {
   const backgroundX = backgroundCoords[0] - 8 * mouseX;
   const backgroundY = backgroundCoords[1] - 8 * mouseY;
 
+  const handleTransition = (direction: string) => {
+    setTransition(direction);
+    slideBackground({
+      backgroundCoords,
+      setBackgroundCoords,
+      direction
+    });
+  }
+
   return (
     <main className={`${styles.main} appBackground`}
       style={{
@@ -45,7 +55,7 @@ const Home: NextPage = () => {
       <AnimatePresence exitBeforeEnter={true}>
         {pageSections[activeSection]({
           setActiveSection,
-          setTransition,
+          handleTransition,
           animation: animations[transition]
         })}
       </AnimatePresence>

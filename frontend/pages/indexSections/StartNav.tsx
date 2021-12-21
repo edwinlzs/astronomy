@@ -2,19 +2,15 @@ import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 
-import { useGlobalBackgroundCoords } from '../../hooks/useGlobalBackgroundCenterCoords';
 import styles from './sectionStyles/StartNav.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
 import { sectionProps } from '../index';
 
-import { slideBackground } from '../../lib/animations';
-
 const StartNav = ({
     setActiveSection,
-    setTransition,
+    handleTransition,
     animation
 }: sectionProps) => {
-    const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
     return (
         <m.div
             key="home"
@@ -33,12 +29,7 @@ const StartNav = ({
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('Meteors');
-                        setTransition('slideDown');
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'down'
-                        })
+                        handleTransition('slideDown');
                     }}
                     text="METEORS"
                     position="top"
@@ -46,12 +37,7 @@ const StartNav = ({
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('BlackHoles');
-                        setTransition('slideUp');
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'up'
-                        })
+                        handleTransition('slideUp');
                     }}
                     text="BLACK HOLES"
                     position="bottom"
@@ -59,12 +45,7 @@ const StartNav = ({
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('Galaxies');
-                        setTransition('slideLeft');
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'left'
-                        })
+                        handleTransition('slideLeft');
                     }}
                     text="GALAXIES"
                     position="right"
@@ -72,12 +53,7 @@ const StartNav = ({
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('SolarSystem');
-                        setTransition('slideRight');
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'right'
-                        })
+                        handleTransition('slideRight');
                     }}
                     text="SOLAR SYSTEM"
                     position="left"

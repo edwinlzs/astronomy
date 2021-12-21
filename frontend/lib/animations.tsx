@@ -18,34 +18,25 @@ export const slideBackground = ({
             y: number
         }
     } = {
-        up: {
+        slideUp: {
             x: 0,
-            y: 0.5
+            y: 40
         },
-        down: {
+        slideDown: {
             x: 0,
-            y: -0.5
+            y: -40
         },
-        right: {
-            x: -0.5,
+        slideRight: {
+            x: -40,
             y: 0
         },
-        left: {
-            x: 0.5,
+        slideLeft: {
+            x: 40,
             y: 0
         }
     }
 
-    let transitioning = true;
-    setInterval(() => {
-        let timeElapsed: number = 0
-        if (transitioning) {
-            timeElapsed += 1;
-            let newX = backgroundCoords[0] += directionValues[direction].x * timeElapsed;
-            let newY = backgroundCoords[1] += directionValues[direction].y * timeElapsed;
-            setBackgroundCoords([newX, newY]);
-        }
-        return;
-    }, 5);
-    setTimeout(() => transitioning = false, 1000)
+    let newX = backgroundCoords[0] + directionValues[direction].x;
+    let newY = backgroundCoords[1] + directionValues[direction].y;
+    setBackgroundCoords([newX, newY])
 }

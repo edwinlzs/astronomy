@@ -3,19 +3,15 @@ import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 
-import { useGlobalBackgroundCoords } from '../../hooks/useGlobalBackgroundCenterCoords';
 import styles from './sectionStyles/Meteors.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
 import { sectionProps } from '../index';
 
-import { slideBackground } from '../../lib/animations';
-
 const Meteors = ({
     setActiveSection,
-    setTransition,
+    handleTransition,
     animation
 }: sectionProps) => {
-    const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
 
     return (
             <m.div
@@ -32,12 +28,7 @@ const Meteors = ({
                     <ArrowButton
                     onClick={() => {
                         setActiveSection('StartNav')
-                        setTransition('slideUp')
-                        slideBackground({
-                            backgroundCoords,
-                            setBackgroundCoords,
-                            direction: 'up'
-                        })
+                        handleTransition('slideUp');
                     }}
                     text="HOME"
                     position="bottom"
