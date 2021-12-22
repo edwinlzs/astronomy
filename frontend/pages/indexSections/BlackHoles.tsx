@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
-import FlipCard from '../../components/FlipCard/FlipCard';
+import CarouselSlide from '../../components/CarouselSlide/CarouselSlide';
 
 import styles from './sectionStyles/BlackHoles.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
@@ -10,7 +10,6 @@ import { sectionProps } from '../index';
 
 import svgBlackHole from '../../assets/svgBlackHole.svg';
 import albertEinstein from '../../assets/albertEinstein.jpg';
-import stephenHawking from '../../assets/stephenHawking.jpeg';
 
 const BlackHoles = ({
     setActiveSection,
@@ -44,19 +43,15 @@ const BlackHoles = ({
                 </div>
 
                 <div className={commonStyles.pageContent}>
-                    <FlipCard
-                        overlay="How did we discover Black Holes?"
-                        front={albertEinstein}
-                        back={
-                            <>World</>
-                        }
-                    />
-                    <FlipCard
-                        overlay="Do Black Holes live forever?"
-                        front={stephenHawking}
-                        back={
-                            <>World</>
-                        }
+                    <CarouselSlide 
+                        image={albertEinstein}
+                        title="What are Black Holes?"
+                        content="
+                        Black Holes are a region of space where gravity is so incredibly strong that
+                        NOTHING that enters it can escape, not even light (the fastest moving object in the universe).
+                        The idea was that since no light from within this region can ever reach our eyes,
+                        it will appear completely dark to us, hence the name Black Hole.
+                        "
                     />
                 </div>
 
