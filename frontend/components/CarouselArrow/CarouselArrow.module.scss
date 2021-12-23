@@ -1,0 +1,56 @@
+// referenced https://codepen.io/HektorW/pen/eJMMaR
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    margin: 0 1rem;
+
+    cursor: pointer;
+    position: relative;
+    
+    transition: transform .1s;
+    
+    $transition-time: .4s;
+
+    &Top, &Bottom {
+        background-color: #666;
+        height: 4px;
+        left: -5px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+
+        &:after {
+            background-color: #fff;
+            content: '';
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: all $transition-time;
+
+            left: 0;
+            right: 100%;
+        }
+    }
+
+    &Top {
+        transform: rotate(45deg);
+        transform-origin: bottom right;
+    }
+
+    &Bottom {
+        transform: rotate(-45deg);
+        transform-origin: top right;
+    }
+
+    &:hover & {
+        &Top:after, &Bottom:after {
+            right: 0;
+        }
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}

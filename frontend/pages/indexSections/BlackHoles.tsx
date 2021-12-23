@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
+import Carousel from '../../components/Carousel/Carousel';
 import CarouselSlide from '../../components/CarouselSlide/CarouselSlide';
 
 import styles from './sectionStyles/BlackHoles.module.scss';
@@ -10,6 +11,17 @@ import { sectionProps } from '../index';
 
 import svgBlackHole from '../../assets/svgBlackHole.svg';
 import albertEinstein from '../../assets/albertEinstein.jpg';
+
+const CarouselSlides = [
+    {
+        image: albertEinstein,
+        title: "What are Black Holes?",
+        content: `Black Holes are a region of space where gravity is so incredibly strong that NOTHING that enters it can escape,
+        not even light (the fastest moving object in the universe).
+        The idea was that since no light from within this region can ever reach our eyes,
+        it will appear completely dark to us, hence the name Black Hole.`
+    }
+]
 
 const BlackHoles = ({
     setActiveSection,
@@ -43,16 +55,16 @@ const BlackHoles = ({
                 </div>
 
                 <div className={commonStyles.pageContent}>
-                    <CarouselSlide 
-                        image={albertEinstein}
-                        title="What are Black Holes?"
-                        content="
-                        Black Holes are a region of space where gravity is so incredibly strong that
-                        NOTHING that enters it can escape, not even light (the fastest moving object in the universe).
-                        The idea was that since no light from within this region can ever reach our eyes,
-                        it will appear completely dark to us, hence the name Black Hole.
-                        "
-                    />
+                    <Carousel>
+                        {CarouselSlides.map((slide, index) => 
+                            <CarouselSlide
+                                key={index}
+                                image={slide.image}
+                                title={slide.title}
+                                content={slide.content}
+                            />
+                        )}
+                    </Carousel>
                 </div>
 
                 <ArrowButton
