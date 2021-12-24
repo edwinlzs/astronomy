@@ -11,6 +11,7 @@ import { sectionProps } from '../index';
 
 import svgBlackHole from '../../assets/svgBlackHole.svg';
 import albertEinstein from '../../assets/albertEinstein.jpg';
+import stephenHawking from '../../assets/stephenHawking.jpeg';
 
 const CarouselSlides = [
     {
@@ -20,6 +21,12 @@ const CarouselSlides = [
         not even light (the fastest moving object in the universe).
         The idea was that since no light from within this region can ever reach our eyes,
         it will appear completely dark to us, hence the name Black Hole.`
+    },
+    {
+        image: stephenHawking,
+        title: "Do Black Holes live forever?",
+        content: `Since nothing can ever escape from inside Black Holes,
+        does that mean they cannot grow smaller or fall apart and will thus exist indefinitely?`
     }
 ]
 
@@ -55,16 +62,7 @@ const BlackHoles = ({
                 </div>
 
                 <div className={commonStyles.pageContent}>
-                    <Carousel>
-                        {CarouselSlides.map((slide, index) => 
-                            <CarouselSlide
-                                key={index}
-                                image={slide.image}
-                                title={slide.title}
-                                content={slide.content}
-                            />
-                        )}
-                    </Carousel>
+                    <Carousel carouselSlides={CarouselSlides}/>
                 </div>
 
                 <ArrowButton

@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 60px;
-    margin: 0 1rem;
+    min-width: 10%;
+    // padding: 0 3rem;
 
     cursor: pointer;
-    position: relative;
+    // position: relative;
     
     transition: transform .1s;
     
@@ -16,10 +16,10 @@
     &Top, &Bottom {
         background-color: #666;
         height: 4px;
-        left: -5px;
+        // left: -5px;
         position: absolute;
         top: 50%;
-        width: 100%;
+        width: 50%;
 
         &:after {
             background-color: #fff;
