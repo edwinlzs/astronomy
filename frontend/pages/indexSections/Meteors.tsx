@@ -14,27 +14,28 @@ const Meteors = ({
 }: sectionProps) => {
 
     return (
-            <m.div
-                key="meteors"
-                className={commonStyles.pageWrap}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={animation.variants}
-                transition={animation.transition}
-            >
-                <div className={commonStyles.page}>
-                    THIS IS A PLACEHOLDER; THERE WILL BE MORE CONTENT HERE NEXT TIME!
-                    <ArrowButton
-                    onClick={() => {
-                        setActiveSection('StartNav')
-                        handleTransition('slideUp');
-                    }}
-                    text="HOME"
-                    position="bottom"
-                    />
-                </div>
-            </m.div>
+        <m.div
+            key="meteors"
+            className={commonStyles.pageWrap}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={animation.variants}
+            transition={animation.transition}
+        >
+            <ArrowButton
+                onClick={() => {
+                    setActiveSection('StartNav')
+                    handleTransition('slideUp');
+                }}
+                text="HOME"
+                position="bottom"
+            />
+            <div className={commonStyles.page}>
+                THIS IS A PLACEHOLDER; THERE WILL BE MORE CONTENT HERE NEXT TIME!
+            </div>
+
+        </m.div>
     )
 }
 

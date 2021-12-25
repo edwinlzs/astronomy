@@ -16,16 +16,24 @@ const Galaxies = ({
 }: sectionProps) => {
 
     return (
-            <m.div
-                key="galaxies"
-                className={commonStyles.pageWrap}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                variants={animation.variants}
-                transition={animation.transition}
-            >
+        <m.div
+            key="galaxies"
+            className={commonStyles.pageWrap}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={animation.variants}
+            transition={animation.transition}
+        >
             <div className={commonStyles.page}>
+                <ArrowButton
+                    onClick={() => {
+                        setActiveSection('StartNav')
+                        handleTransition('slideRight');
+                    }}
+                    text="HOME"
+                    position="left"
+                />
                 <div className={commonStyles.pageTitle}>
                     <Image src={pngGalaxy} alt="" width={220} height={220} />
                     <div className={commonStyles.pageTitleText}>
@@ -34,25 +42,16 @@ const Galaxies = ({
                     <div className={commonStyles.pageSubtitleText}>
                         Galaxies are collections of tons and tons of stars, planets, nebulae, asteroids
                         and the like. We live in the Milk Way Galaxy; our closest neighbour is the Andromeda
-                        Galaxy. They come in various shapes and sizes, and it can be interesting to
-                        see the odd shapes and sizes which they come in.
+                        Galaxy. They come in all sorts of quirky shapes and sizes.
                     </div>
                 </div>
 
                 <div className={commonStyles.pageContent}>
-                    
-                </div>
 
-                    <ArrowButton
-                    onClick={() => {
-                        setActiveSection('StartNav')
-                        handleTransition('slideRight');
-                    }}
-                    text="HOME"
-                    position="left"
-                    />
                 </div>
-            </m.div>
+            </div>
+
+        </m.div>
     )
 }
 

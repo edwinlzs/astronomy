@@ -1,19 +1,20 @@
 .content {
     position: fixed;
     fill: #FFF;
-    transition: all .2s ease-out;
+    transition: all .3s ease-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1;
     
     p {
         margin: 15px 0 15px;
     }
 
     &:hover {
-        color: rgb(243, 227, 154);
-        fill: rgb(243, 227, 154);
+        color: rgb(233, 198, 45);
+        fill: rgb(233, 198, 45);
         cursor: pointer;
     }
 }

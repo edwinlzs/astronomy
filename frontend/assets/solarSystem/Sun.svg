@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="80pt"
+   height="80pt"
+   id="svg1">
+  <metadata
+     id="metadata3085" />
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient912">
+      <stop
+         id="stop913"
+         style="stop-color:#ffffff;stop-opacity:0.73333335"
+         offset="0" />
+      <stop
+         id="stop914"
+         style="stop-color:#ffffff;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       cx="44.699299"
+       cy="42.72097"
+       r="12.239094"
+       fx="44.699299"
+       fy="42.72097"
+       id="radialGradient915"
+       xlink:href="#linearGradient912"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.0224747,0.97801928)" />
+    <radialGradient
+       cx="44.699299"
+       cy="42.72097"
+       r="12.239094"
+       fx="44.699299"
+       fy="42.72097"
+       id="radialGradient3090"
+       xlink:href="#linearGradient912"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.9593693,0,0,1.8269263,-44.63822,-41.63571)" />
+  </defs>
+  <g
+     id="g3093">
+    <path
+       d="m 90.817562,47.382712 c 0,21.006676 -17.842089,38.055574 -39.826093,38.055574 -21.984003,0 -39.826093,-17.048898 -39.826093,-38.055574 0,-21.006679 17.84209,-38.0555768 39.826093,-38.0555768 21.984004,0 39.826093,17.0488978 39.826093,38.0555768 z"
+       id="path910"
+       style="fill:#ffa400;fill-opacity:0.9807692;fill-rule:evenodd;stroke-width:1.30840731;stroke-linejoin:round" />
+    <path
+       d="m 66.92512,36.412356 c 0,12.342676 -10.743446,22.359921 -23.980905,22.359921 -13.23746,0 -23.980905,-10.017245 -23.980905,-22.359921 0,-12.342678 10.743445,-22.359923 23.980905,-22.359923 13.237459,0 23.980905,10.017245 23.980905,22.359923 z"
+       id="path911"
+       style="fill:url(#radialGradient3090);fill-opacity:1;fill-rule:evenodd;stroke-width:1pt" />
+  </g>
+  <metadata
+     id="metadata3087">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title></dc:title>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Nicu Buculei</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://web.resource.org/cc/PublicDomain" />
+        <dc:format>image/svg+xml</dc:format>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://web.resource.org/cc/PublicDomain">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

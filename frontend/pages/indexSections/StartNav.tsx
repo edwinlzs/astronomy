@@ -22,10 +22,6 @@ const StartNav = ({
             transition={animation.transition}
         >
             <div className={`${styles.startNav} ${commonStyles.page}`}>
-                <div className={styles.startNavTitle}>
-                    <span className={styles.header}>Astronomy</span>
-                    <span className={styles.subheader}>an introduction.</span>
-                </div>
                 <ArrowButton
                     onClick={() => {
                         setActiveSection('Meteors');
@@ -58,6 +54,10 @@ const StartNav = ({
                     text="SOLAR SYSTEM"
                     position="left"
                 />
+                <div className={styles.startNavTitle}>
+                    <span className={styles.header}>Astronomy</span>
+                    <span className={styles.subheader}>an introduction.</span>
+                </div>
             </div >
         </m.div>
     )

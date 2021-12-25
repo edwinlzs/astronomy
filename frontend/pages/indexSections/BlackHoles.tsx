@@ -3,7 +3,6 @@ import { m } from 'framer-motion';
 
 import ArrowButton from '../../components/ArrowButton/ArrowButton';
 import Carousel from '../../components/Carousel/Carousel';
-import CarouselSlide from '../../components/CarouselSlide/CarouselSlide';
 
 import styles from './sectionStyles/BlackHoles.module.scss';
 import commonStyles from './sectionStyles/commonStyles.module.scss';
@@ -25,8 +24,12 @@ const CarouselSlides = [
     {
         image: stephenHawking,
         title: "Do Black Holes live forever?",
-        content: `Since nothing can ever escape from inside Black Holes,
-        does that mean they cannot grow smaller or fall apart and will thus exist indefinitely?`
+        content: `Since inside a Black Hole can ever escape,
+        does that mean they can never grow smaller and thus live forever?
+        
+        Surprisingly, no! Stephen Hawking famously discovered that Black Holes naturally
+        lose mass by emitting what we call 'Hawking Radiation'. They will shrink
+        in size and eventually die out if they do not absorb new matter.`
     }
 ]
 
@@ -45,8 +48,15 @@ const BlackHoles = ({
             variants={animation.variants}
             transition={animation.transition}
         >
-            <div className={commonStyles.page}>
-
+            <ArrowButton
+                onClick={() => {
+                    setActiveSection('StartNav')
+                    handleTransition('slideDown');
+                }}
+                text="HOME"
+                position="top"
+            />
+            <div className={`${commonStyles.page}  ${styles.page}`}>
                 <div className={commonStyles.pageTitle}>
                     <Image src={svgBlackHole} alt="" width={160} height={160} />
                     <div className={commonStyles.pageTitleText}>
@@ -62,17 +72,8 @@ const BlackHoles = ({
                 </div>
 
                 <div className={commonStyles.pageContent}>
-                    <Carousel carouselSlides={CarouselSlides}/>
+                    <Carousel carouselSlides={CarouselSlides} />
                 </div>
-
-                <ArrowButton
-                    onClick={() => {
-                        setActiveSection('StartNav')
-                        handleTransition('slideDown');
-                    }}
-                    text="HOME"
-                    position="top"
-                />
             </div>
         </m.div>
     )
