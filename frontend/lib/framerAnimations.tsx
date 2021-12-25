@@ -1,7 +1,7 @@
 //referenced https://github.com/ivandotv/nextjs-page-transitions
 import { Transition, Variants } from 'framer-motion';
 
-export type Animation = {
+export type FramerAnimation = {
     name: string,
     variants: Variants,
     transition: Transition
@@ -95,9 +95,28 @@ const slideLeft = {
     }
 }
 
-export const animations: { [key: string]: Animation } = {
+const fade = {
+    name: "Fade",
+    variants: {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
+        },
+        exit: {
+            opacity: 0,
+        }
+    },
+    transition: {
+        duration: 0.3
+    }
+}
+
+export const framerAnimations: { [key: string]: FramerAnimation } = {
     slideUp: slideUp,
     slideDown: slideDown,
     slideRight: slideRight,
     slideLeft: slideLeft,
+    fade: fade,
 }

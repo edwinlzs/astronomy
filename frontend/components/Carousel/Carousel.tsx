@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import CarouselArrow from '../CarouselArrow/CarouselArrow';
 import CarouselSlide from '../CarouselSlide/CarouselSlide';
@@ -24,11 +25,14 @@ const Carousel = ({ carouselSlides }: CarouselProps) => {
                 currentSlide={currentSlide}
                 setCurrentSlide={setCurrentSlide}
             />
-            <CarouselSlide
-                image={carouselSlides[currentSlide].image}
-                title={carouselSlides[currentSlide].title}
-                content={carouselSlides[currentSlide].content}
-            />
+            <AnimatePresence exitBeforeEnter={true}>
+                <CarouselSlide
+                    key={`carouselSlide${currentSlide}`}
+                    image={carouselSlides[currentSlide].image}
+                    title={carouselSlides[currentSlide].title}
+                    content={carouselSlides[currentSlide].content}
+                />
+            </AnimatePresence>
             <CarouselArrow
                 direction="right"
                 slideCount={slideCount}

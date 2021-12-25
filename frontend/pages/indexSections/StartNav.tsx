@@ -13,7 +13,7 @@ const StartNav = ({
 }: sectionProps) => {
     return (
         <m.div
-            key="home"
+            key="startNav"
             className={commonStyles.pageWrap}
             initial="initial"
             animate="animate"

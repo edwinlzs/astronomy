@@ -1,5 +1,8 @@
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import styles from './CarouselSlide.module.scss';
+
+import { framerAnimations } from '../../lib/framerAnimations';
 
 type CarouselSlideProps = {
     image: StaticImageData;
@@ -8,8 +11,17 @@ type CarouselSlideProps = {
 }
 
 const CarouselSlide = ({ image, title, content }: CarouselSlideProps) => {
+    
     return (
-        <div className={styles.container}>
+        <m.div
+            className={styles.container}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={framerAnimations.fade.variants}
+            transition={framerAnimations.fade.transition}
+        >
+        {/* <div className={styles.container}> */}
             <div className={styles.slideImage}>
                 <Image src={image} alt="" layout="fill" objectFit="cover"/>
             </div>
@@ -21,7 +33,8 @@ const CarouselSlide = ({ image, title, content }: CarouselSlideProps) => {
                     {content}
                 </div>
             </div>
-        </div>
+        {/* </div> */}
+        </m.div>
     )
 }
 

@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useGlobalMouseMove } from '../hooks/useGlobalMouseMove';
 import { useGlobalBackgroundCoords } from '../hooks/useGlobalBackgroundCenterCoords';
 import styles from '../styles/Home.module.scss';
-import { Animation, animations } from '../lib/framerAnimations';
+import { FramerAnimation, framerAnimations } from '../lib/framerAnimations';
 import { slideBackground } from '../lib/animations';
 
 import StartNav from './indexSections/StartNav';
@@ -17,7 +17,7 @@ import Meteors from './indexSections/Meteors';
 export type sectionProps = {
   setActiveSection: Dispatch<SetStateAction<string>>;
   handleTransition: (direction: string) => void;
-  animation: Animation;
+  animation: FramerAnimation;
 }
 
 const Home: NextPage = () => {
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
         {pageSections[activeSection]({
           setActiveSection,
           handleTransition,
-          animation: animations[transition]
+          animation: framerAnimations[transition]
         })}
       </AnimatePresence>
     </main>

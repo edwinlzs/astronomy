@@ -20,7 +20,7 @@ const CarouselSlides = [
         content: `Black Holes are a region of space where gravity is so incredibly strong that NOTHING that enters it can escape,
         not even light (the fastest moving object in the universe).
         The idea was that since no light from within this region can ever reach our eyes,
-        it will appear completely dark to us, hence the name Black Hole.`
+        it will appear completely dark to us, hence the name "Black Hole".`
     },
     {
         image: stephenHawking,
