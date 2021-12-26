@@ -33,8 +33,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Appreciating the universe" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="devGridlines centerY"/>
-      <div className="devGridlines centerX"/>
+      {/* <div className="devGridlines centerY"/>
+      <div className="devGridlines centerX"/> */}
       <Component {...pageProps} />
     </Wrapper>
   )

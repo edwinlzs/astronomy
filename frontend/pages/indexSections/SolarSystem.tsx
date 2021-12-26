@@ -33,8 +33,6 @@ const SolarSystem = ({
                 position="right"
             />
             <div className={`${commonStyles.page}  ${styles.page}`}>
-
-                THIS IS A PLACEHOLDER; THERE WILL BE MORE CONTENT HERE NEXT TIME!
                 <SolarSystemModel/>
             </div>
 

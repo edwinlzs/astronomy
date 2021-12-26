@@ -3,8 +3,8 @@
     z-index: 1;
     position: absolute;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-position: center 40%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,6 +13,13 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        font-size: 62%;
+        transform-style: preserve-3d;
+
+        // vertical-align: baseline;
+        margin: 0;
+        padding: 0;
+        transform: rotateX(75deg);
 
         & .orbit {
             position: absolute;
@@ -21,21 +28,222 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform-style: preserve-3d;
-            animation: orbit linear infinite;
+            
+            animation-name: orbit;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
 
-            & #sun, .planet {
-                position: absolute;
-                top: 50%;
+        & #sun, .planet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1em; // changed
+            height: 1em; // changed
+            margin-top: -0.5em;
+            margin-left: -0.5em;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+        }
+
+        & #sun {
+            // background-color: #FB7209;
+            background-repeat: no-repeat;
+            background-size: cover;
+            // box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
+
+            // 3D
+            transform: rotateX(-90deg);
+        }
+
+        & .pos {
+            position: absolute;
+            top: 50%;
+            width: 2em;
+            height: 2em;
+            margin-top: -1em;
+            margin-left: -1em;
+            transform-style: preserve-3d;
+            animation-name: invert;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        & .planet {
+            background-color: #202020;
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+
+            // 3D
+            transform: rotateX(0deg);
+        }
+
+        // planets
+        & #mercury {
+            
+            & .pos {
                 left: 50%;
-                width: 1em;
-                height: 1em;
-                margin-top: -0.5em;
-                margin-left: -0.5em;
-                border-radius: 50%;
-                transform-style: preserve-3d;
+                top: -1%;
+            }
+
+            & .planet {
+                font-size: 1.8em;
+                z-index: 10;
+                background-image: url('../../assets/solarSystem/Mercury.svg');
+                animation-name: shadow-mercury;
+
+                box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+
+                @keyframes shadow-mercury {
+                    0% {
+                        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+                    }
+
+                    25% {
+                        box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+                    /* LEFT */ }
+                
+                    50% {
+                        box-shadow: inset 13px -5px 4px rgba(0, 0, 0, 0.5);
+                    /* BOTTOM */ }
+                
+                    50.01% {
+                        box-shadow: inset -13px -5px 4px rgba(0, 0, 0, 0.5);
+                    /* BOTTOM */ }
+                
+                    75% {
+                        box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+                    /* RIGHT */ }
+                
+                    100% {
+                        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+                    /* TOP */ }
+                }
+            }
+
+            &.orbit {
+                // border: 1px solid rgba(255, 255, 255, 0.8);
+                width: 32em;
+                height: 32em;
+                margin-top: -16em;
+                margin-left: -16em;
+            }
+
+            &.orbit, & .planet, & .pos {
+                // sidereal years
+                animation-duration: 2.89016s;
             }
         }
+
+        & #venus {
+            z-index: 9;
+
+            & .pos {
+                left: 0%;
+                top: 50%;
+            }
+
+            & .planet {
+                font-size: 1.8em;
+                z-index: 10;
+                background-image: url('../../assets/solarSystem/Venus.svg');
+                animation-name: shadow-venus;
+
+                box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+
+                @keyframes shadow-venus {
+                    0% {
+                        box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+                    /* LEFT */ }
+                
+                    25% {
+                        box-shadow: inset 22px -20px 10px rgba(0, 0, 0, 0.5);
+                    /* BOTTOM */ }
+                
+                    25.5% {
+                        box-shadow: inset -22px -20px 10px rgba(0, 0, 0, 0.5);
+                    /* BOTTOM */ }
+                
+                    50% {
+                        box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+                    /* RIGHT */ }
+                
+                    75% {
+                        box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+                    /* TOP */ }
+                
+                    100% {
+                        box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+                    /* LEFT */ }
+                }
+            }
+
+            &.orbit {
+                // border: 1px solid rgba(255, 255, 255, 0.8);
+                width: 40em;
+                height: 40em;
+                margin-top: -20em;
+                margin-left: -20em;
+            }
+
+            &.orbit, & .planet, & .pos {
+                // sidereal years
+                animation-duration: 17.38237s;
+            }
+        }
+
+        & #earth {
+            z-index: 8;
+        }
+
+        & #mars {
+            z-index: 7;
+        }
+
+        & #jupiter {
+            z-index: 6;
+        }
+
+        & #saturn {
+            z-index: 5;
+        }
+
+        & #uranus {
+            z-index: 4;
+        }
+
+        & #neptune {
+            z-index: 3;
+        }
+
+        & #pluto {
+            z-index: 2;
+        }
+
+        & #sun {
+            z-index: 1;
+            background-image: url('../../assets/solarSystem/Sun.svg');
+            font-size: 20em;
+        }
     }
+}
 
+@keyframes orbit {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(-360deg);
+    }
+}
 
+@keyframes invert {
+    0% {
+        transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+    }
 }
