@@ -24,16 +24,18 @@ const SolarSystem = ({
             variants={animation.variants}
             transition={animation.transition}
         >
-            <ArrowButton
-                onClick={() => {
-                    setActiveSection('StartNav')
-                    handleTransition('slideLeft');
-                }}
-                text="HOME"
-                position="right"
-            />
+            <div className={styles.rightArrow}>
+                <ArrowButton
+                    onClick={() => {
+                        setActiveSection('StartNav')
+                        handleTransition('slideLeft');
+                    }}
+                    text="HOME"
+                    position="right"
+                />
+            </div>
             <div className={`${commonStyles.page}  ${styles.page}`}>
-                <SolarSystemModel/>
+                <SolarSystemModel />
             </div>
 
         </m.div>
