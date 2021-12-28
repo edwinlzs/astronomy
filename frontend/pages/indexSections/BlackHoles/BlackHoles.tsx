@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import { m } from 'framer-motion';
 
-import ArrowButton from '../../components/ArrowButton/ArrowButton';
-import Carousel from '../../components/Carousel/Carousel';
+import ArrowButton from '../../../components/ArrowButton/ArrowButton';
+import Carousel from '../../../components/Carousel/Carousel';
 
-import styles from './sectionStyles/BlackHoles.module.scss';
-import commonStyles from './sectionStyles/commonStyles.module.scss';
-import { sectionProps } from '../index';
+import styles from './BlackHoles.module.scss';
+import commonStyles from '../commonStyles.module.scss';
+import { sectionProps } from '../../index';
 
-import svgBlackHole from '../../assets/svgBlackHole.svg';
-import albertEinstein from '../../assets/albertEinstein.jpg';
-import stephenHawking from '../../assets/stephenHawking.jpeg';
+import svgBlackHole from '/assets/svgBlackHole.svg';
+import albertEinstein from '/assets/albertEinstein.jpg';
+import stephenHawking from '/assets/stephenHawking.jpeg';
 
 const CarouselSlides = [
     {

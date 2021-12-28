@@ -1,10 +1,10 @@
 import { m } from 'framer-motion';
 
-import ArrowButton from '../../components/ArrowButton/ArrowButton';
+import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 
-import styles from './sectionStyles/StartNav.module.scss';
-import commonStyles from './sectionStyles/commonStyles.module.scss';
-import { sectionProps } from '../index';
+import styles from './StartNav.module.scss';
+import commonStyles from '../commonStyles.module.scss';
+import { sectionProps } from '../../index';
 
 const StartNav = ({
     setActiveSection,
@@ -24,10 +24,10 @@ const StartNav = ({
             <div className={`${styles.startNav} ${commonStyles.page}`}>
                 <ArrowButton
                     onClick={() => {
-                        setActiveSection('Meteors');
+                        setActiveSection('SolarSystem');
                         handleTransition('slideDown');
                     }}
-                    text="METEORS"
+                    text="SOLAR SYSTEM"
                     position="top"
                 />
                 <ArrowButton
@@ -48,10 +48,10 @@ const StartNav = ({
                 />
                 <ArrowButton
                     onClick={() => {
-                        setActiveSection('SolarSystem');
+                        setActiveSection('Meteors');
                         handleTransition('slideRight');
                     }}
-                    text="SOLAR SYSTEM"
+                    text="METEORS"
                     position="left"
                 />
                 <div className={styles.startNavTitle}>

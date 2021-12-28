@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { m } from 'framer-motion';
 
-import ArrowButton from '../../components/ArrowButton/ArrowButton';
+import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 
-import styles from './sectionStyles/Galaxies.module.scss';
-import commonStyles from './sectionStyles/commonStyles.module.scss';
-import { sectionProps } from '../index';
+import styles from './Galaxies.module.scss';
+import commonStyles from '../commonStyles.module.scss';
+import { sectionProps } from '../../index';
 
-import pngGalaxy from '../../assets/pngGalaxy.png';
+import pngGalaxy from '/assets/pngGalaxy.png';
 
 const Galaxies = ({
     setActiveSection,

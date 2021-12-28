@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import { m } from 'framer-motion';
 
-import ArrowButton from '../../components/ArrowButton/ArrowButton';
+import ArrowButton from '../../../components/ArrowButton/ArrowButton';
+import SolarSystemModel from '../../../components/SolarSystemModel/SolarSystemModel';
+import Carousel from '../../../components/Carousel/Carousel';
 
-import styles from './sectionStyles/Meteors.module.scss';
-import commonStyles from './sectionStyles/commonStyles.module.scss';
-import { sectionProps } from '../index';
+import styles from './SolarSystem.module.scss';
+import commonStyles from '../commonStyles.module.scss';
+import { sectionProps } from '../../index';
 
-const Meteors = ({
+import { objectInfo } from './SolarSystemInfo';
+
+const SolarSystem = ({
     setActiveSection,
     handleTransition,
     animation
@@ -15,7 +19,7 @@ const Meteors = ({
 
     return (
         <m.div
-            key="meteors"
+            key="solarSystem"
             className={commonStyles.pageWrap}
             initial="initial"
             animate="animate"
@@ -31,12 +35,13 @@ const Meteors = ({
                 text="HOME"
                 position="bottom"
             />
-            <div className={commonStyles.page}>
-                THIS IS A PLACEHOLDER; THERE WILL BE MORE CONTENT HERE NEXT TIME!
+            <div className={`${commonStyles.page}  ${styles.page}`}>
+                <SolarSystemModel />
+                {/* <Carousel carouselSlides={objectInfo}/> */}
             </div>
 
         </m.div>
     )
 }
 
-export default Meteors;
+export default SolarSystem;

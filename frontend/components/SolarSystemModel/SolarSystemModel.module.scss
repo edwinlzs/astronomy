@@ -1,20 +1,23 @@
 // referenced and inspired by https://codepen.io/juliangarnier/pen/idhuG
 #container {
     z-index: 1;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(1px);
+    height: 60vh;
+    top: 0;
     background-position: center 40%;
     background-repeat: no-repeat;
     background-size: cover;
 
+    display: flex;
+    flex-direction: column;
+
     & #solarSystem {
-        position: absolute;
+        position: relative;
         width: 100%;
         height: 100%;
-        font-size: 24%;
+        font-size: 42%;
         transform-style: preserve-3d;
 
         // vertical-align: baseline;
@@ -22,13 +25,16 @@
         padding: 0;
         transform: rotateX(75deg);
 
-        & .orbit {
+        & #sun, .planet, .orbit {
             position: absolute;
             top: 50%;
             left: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform-style: preserve-3d;
+        }
+
+        & .orbit {
+            border: 3px solid rgba(255, 255, 255, 0.2);
             
             animation-name: orbit;
             animation-timing-function: linear;
@@ -36,25 +42,10 @@
         }
 
         & #sun, .planet {
-            position: absolute;
-            top: 50%;
-            left: 50%;
             width: 1em;
             height: 1em;
             margin-top: -0.5em;
             margin-left: -0.5em;
-            border-radius: 50%;
-            transform-style: preserve-3d;
-        }
-
-        & #sun {
-            // background-color: #FB7209;
-            background-repeat: no-repeat;
-            background-size: cover;
-            // box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
-
-            // 3D
-            transform: rotateX(-90deg);
         }
 
         & .pos {
@@ -132,7 +123,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 2.89016s;
             }
         }
@@ -188,7 +179,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 7.38237s;
             }
         }
@@ -244,7 +235,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 12.00021s;
             }
         }
@@ -300,7 +291,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 22.57017s;
             }
         }
@@ -356,7 +347,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 142.35138s;
             }
         }
@@ -412,7 +403,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 353.36998s;
             }
 
@@ -498,7 +489,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 1008.20215s;
             }
         }
@@ -554,7 +545,7 @@
             }
 
             &.orbit, & .planet, & .pos {
-                // sidereal years
+                // sidereal years in months
                 animation-duration: 1977.49584s;
             }
         }
@@ -566,7 +557,53 @@
         & #sun {
             z-index: 1;
             background-image: url('../../assets/solarSystem/Sun.png');
-            font-size: 20em;
+            font-size: 24em;
+
+            // background-color: #FB7209;
+            background-repeat: no-repeat;
+            background-size: cover;
+            // box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
+
+            // 3D
+            transform: rotateX(-90deg);
+        }
+
+        & dl.info {
+            position: absolute;
+            display: block;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            margin-top: -90%;
+            margin-left: 90%;
+            padding-left: 100%;
+            transform-origin: 100% 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(90deg);
+
+            &:before {
+                position: absolute;
+                content: '';
+                width: 15px;
+                height: 30px;
+                left: 15px;
+                bottom: 0;
+                border-top: 1px solid white;
+                border-left: 1px solid white;
+                transform-style: preserve-3d;
+                transform: skew(-45deg, 0deg);
+                box-shadow: inset 1px 1px black;
+            }
+
+            & dt {
+                position: absolute;
+                left: 50px;
+                margin-bottom: 26px;
+                bottom: 0px;
+                color: #FFF;
+                font-size: 14px;
+                text-shadow: 1px 1px 2px black
+            }
         }
     }
 }

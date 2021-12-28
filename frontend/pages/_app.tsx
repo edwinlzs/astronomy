@@ -31,10 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Astronomy</title>
         <meta name="description" content="Appreciating the universe" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/svgBlackHole.svg" />
       </Head>
-      {/* <div className="devGridlines centerY"/>
-      <div className="devGridlines centerX"/> */}
+      <div className="devGridlines centerY"/>
+      <div className="devGridlines centerX"/>
       <Component {...pageProps} />
     </Wrapper>
   )

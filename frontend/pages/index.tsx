@@ -8,11 +8,11 @@ import styles from '../styles/Home.module.scss';
 import { FramerAnimation, framerAnimations } from '../lib/framerAnimations';
 import { slideBackground } from '../lib/animations';
 
-import StartNav from './indexSections/StartNav';
-import BlackHoles from './indexSections/BlackHoles';
-import SolarSystem from './indexSections/SolarSystem';
-import Galaxies from './indexSections/Galaxies';
-import Meteors from './indexSections/Meteors';
+import StartNav from './indexSections/StartNav/StartNav';
+import BlackHoles from './indexSections/BlackHoles/BlackHoles';
+import SolarSystem from './indexSections/SolarSystem/SolarSystem';
+import Galaxies from './indexSections/Galaxies/Galaxies';
+import Meteors from './indexSections/Meteors/Meteors';
 
 export type sectionProps = {
   setActiveSection: Dispatch<SetStateAction<string>>;
