@@ -10,14 +10,13 @@ type ElasticTabsProps = {
 
 const ElasticTabs = ({ tabs, selected, setSelected }: ElasticTabsProps) => {
     const activeRef = useRef<HTMLDivElement>(null)
-    const [activeStyles, setActiveStyles] = useState<CSSProperties>({ left: '0px', width: '0px', color: '#fff' })
+    const [activeStyles, setActiveStyles] = useState<CSSProperties>({ left: '0px', width: '0px'})
 
     useEffect(() => {
         const divElement = activeRef.current;
-        console.log(activeRef)
         setActiveStyles({
             left: divElement?.offsetLeft,
-            width: divElement ? divElement.offsetWidth + 1 : '0px',
+            width: divElement?.offsetWidth,
         })
     }, [selected])
 

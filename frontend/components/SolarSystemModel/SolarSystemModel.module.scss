@@ -1,10 +1,10 @@
-// referenced and inspired by https://codepen.io/juliangarnier/pen/idhuG
+// inspired by and references https://codepen.io/juliangarnier/pen/idhuG
 #container {
     z-index: 1;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     width: 100vw;
-    height: 60vh;
+    height: 80vh;
     top: 0;
     background-position: center 40%;
     background-repeat: no-repeat;
@@ -59,6 +59,11 @@
             animation-name: invert;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
+
+            // transition-delay: 1s;
+            transition-property: top, left;
+            transition-duration: .8s;
+            transition-timing-function: ease-in-out;
         }
 
         & .planet {
@@ -577,9 +582,11 @@
             margin-top: -90%;
             margin-left: 90%;
             padding-left: 100%;
+            transform: rotateX(90deg);
             transform-origin: 100% 100%;
             transform-style: preserve-3d;
-            transform: rotateX(90deg);
+            transition-duration: .8s;
+            transition-timing-function: ease-in-out;
 
             &:before {
                 position: absolute;
