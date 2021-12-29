@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import type { NextPage } from 'next';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, Variants } from 'framer-motion';
 
 import { useGlobalMouseMove } from '../hooks/useGlobalMouseMove';
 import { useGlobalBackgroundCoords } from '../hooks/useGlobalBackgroundCenterCoords';
 import styles from '../styles/Home.module.scss';
-import { FramerAnimation, framerAnimations } from '../lib/framerAnimations';
 import { slideBackground } from '../lib/animations';
+import { variants } from '../lib/framerAnimations';
 
 import StartNav from './indexSections/StartNav/StartNav';
 import BlackHoles from './indexSections/BlackHoles/BlackHoles';
@@ -17,14 +17,17 @@ import Meteors from './indexSections/Meteors/Meteors';
 export type sectionProps = {
   setActiveSection: Dispatch<SetStateAction<string>>;
   handleTransition: (direction: string) => void;
-  animation: FramerAnimation;
+  transitionDirection: string;
+  transitionProps: {[key:string]: string};
+  variants: Variants;
 }
 
 const Home: NextPage = () => {
   const [mouseX, mouseY] = useGlobalMouseMove();
   const [backgroundCoords, setBackgroundCoords] = useGlobalBackgroundCoords();
   const [activeSection, setActiveSection] = useState<string>('StartNav');
-  const [transition, setTransition] = useState<string>('slideUp');
+  const [transitionDirection, setTransitionDirection] = useState<string>('slideUp');
+  const transitionProps = {duration: '0.5'};
 
   const pageSections: { [key: string]: (props: sectionProps) => JSX.Element } = {
     StartNav: (props) => StartNav(props),
@@ -38,7 +41,7 @@ const Home: NextPage = () => {
   const backgroundY = backgroundCoords[1] - 8 * mouseY;
 
   const handleTransition = (direction: string) => {
-    setTransition(direction);
+    setTransitionDirection(direction);
     slideBackground({
       backgroundCoords,
       setBackgroundCoords,
@@ -52,11 +55,13 @@ const Home: NextPage = () => {
         backgroundPosition: `${backgroundX}% ${backgroundY}%`
       }}
     >
-      <AnimatePresence exitBeforeEnter={true}>
+      <AnimatePresence exitBeforeEnter={true} custom={transitionDirection}>
         {pageSections[activeSection]({
           setActiveSection,
           handleTransition,
-          animation: framerAnimations[transition]
+          transitionDirection,
+          transitionProps,
+          variants
         })}
       </AnimatePresence>
     </main>

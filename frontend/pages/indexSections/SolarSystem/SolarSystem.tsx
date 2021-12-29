@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import { m } from 'framer-motion';
 
 import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 import SolarSystemModel from '../../../components/SolarSystemModel/SolarSystemModel';
-import Carousel from '../../../components/Carousel/Carousel';
 
 import styles from './SolarSystem.module.scss';
 import commonStyles from '../commonStyles.module.scss';
@@ -14,7 +12,9 @@ import { objectInfo } from './SolarSystemInfo';
 const SolarSystem = ({
     setActiveSection,
     handleTransition,
-    animation
+    transitionDirection,
+    transitionProps,
+    variants
 }: sectionProps) => {
 
     return (
@@ -24,8 +24,9 @@ const SolarSystem = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            variants={animation.variants}
-            transition={animation.transition}
+            custom={transitionDirection}
+            variants={variants}
+            transition={transitionProps}
         >
             <ArrowButton
                 onClick={() => {
@@ -37,7 +38,6 @@ const SolarSystem = ({
             />
             <div className={`${commonStyles.page}  ${styles.page}`}>
                 <SolarSystemModel />
-                {/* <Carousel carouselSlides={objectInfo}/> */}
             </div>
 
         </m.div>

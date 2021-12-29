@@ -12,7 +12,9 @@ import pngGalaxy from '/assets/pngGalaxy.png';
 const Galaxies = ({
     setActiveSection,
     handleTransition,
-    animation
+    transitionDirection,
+    transitionProps,
+    variants
 }: sectionProps) => {
 
     return (
@@ -22,8 +24,9 @@ const Galaxies = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            variants={animation.variants}
-            transition={animation.transition}
+            custom={transitionDirection}
+            variants={variants}
+            transition={transitionProps}
         >
             <div className={commonStyles.page}>
                 <ArrowButton

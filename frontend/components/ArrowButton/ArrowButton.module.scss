@@ -1,9 +1,9 @@
 .content {
-    position: fixed;
+    position: absolute;
     fill: #FFF;
     transition: all .3s ease-out;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 1;

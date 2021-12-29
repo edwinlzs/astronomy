@@ -36,7 +36,9 @@ const CarouselSlides = [
 const BlackHoles = ({
     setActiveSection,
     handleTransition,
-    animation
+    transitionDirection,
+    transitionProps,
+    variants
 }: sectionProps) => {
     return (
         <m.div
@@ -45,8 +47,9 @@ const BlackHoles = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            variants={animation.variants}
-            transition={animation.transition}
+            custom={transitionDirection}
+            variants={variants}
+            transition={transitionProps}
         >
             <ArrowButton
                 onClick={() => {

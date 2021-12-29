@@ -33,7 +33,7 @@ a {
 
 .devGridlines {
   border: 1px dashed green;
-  position: absolute;
+  position: fixed;
 }
 
 .centerY {

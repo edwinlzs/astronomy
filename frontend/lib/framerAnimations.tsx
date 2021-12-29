@@ -2,101 +2,95 @@
 import { Transition, Variants } from 'framer-motion';
 
 export type FramerAnimation = {
-    name: string,
     variants: Variants,
     transition: Transition
 }
 
-const slideUp = {
-    name: "Slide Up",
-    variants: {
-        initial: {
-            opacity: 0,
-            top: "100vh",
-            scale: 0.4
-        },
-        animate: {
-            opacity: 1,
-            top: "0vh",
-            scale: 1
-        },
-        exit: {
-            opacity: 0,
-        }
-    },
-    transition: {
-        duration: 0.5
-    }
-}
+// const slideUp: FramerAnimation = {
+//     variants: {
+//         initial: {
+//             opacity: 0,
+//             top: "100vh",
+//             scale: 0.4
+//         },
+//         animate: {
+//             opacity: 1,
+//             top: "0vh",
+//             scale: 1
+//         },
+//         exit: {
+//             opacity: 0,
+//         }
+//     },
+//     transition: {
+//         duration: 0.5
+//     }
+// }
 
-const slideDown = {
-    name: "Slide Down",
-    variants: {
-        initial: {
-            opacity: 0,
-            top: "-100vh",
-            scale: 0.4
-        },
-        animate: {
-            opacity: 1,
-            top: "0vh",
-            scale: 1
-        },
-        exit: {
-            opacity: 0,
-        }
-    },
-    transition: {
-        duration: 0.5
-    }
-}
+// const slideDown: FramerAnimation = {
+//     variants: {
+//         initial: {
+//             opacity: 0,
+//             top: "-100vh",
+//             scale: 0.4
+//         },
+//         animate: {
+//             opacity: 1,
+//             top: "0vh",
+//             scale: 1
+//         },
+//         exit: {
+//             opacity: 0,
+//         }
+//     },
+//     transition: {
+//         duration: 0.5
+//     }
+// }
 
-const slideRight = {
-    name: "Slide Right",
-    variants: {
-        initial: {
-            opacity: 0,
-            left: "-100vw",
-            scale: 0.6
-        },
-        animate: {
-            opacity: 1,
-            left: 0,
-            scale: 1
-        },
-        exit: {
-            opacity: 0,
-        }
-    },
-    transition: {
-        duration: 0.5
-    }
-}
+// const slideRight: FramerAnimation = {
+//     variants: {
+//         initial: {
+//             opacity: 0,
+//             left: "-100vw",
+//             scale: 0.6
+//         },
+//         animate: {
+//             opacity: 1,
+//             left: 0,
+//             scale: 1
+//         },
+//         exit: {
+//             opacity: 0,
+//         }
+//     },
+//     transition: {
+//         duration: 0.5
+//     }
+// }
 
-const slideLeft = {
-    name: "Slide Left",
-    variants: {
-        initial: {
-            opacity: 0,
-            left: "100vw",
-            scale: 0.6
-        },
-        animate: {
-            opacity: 1,
-            left: 0,
-            scale: 1
-        },
-        exit: {
-            opacity: 0,
-        }
-    },
-    transition: {
-        duration: 0.5
-    }
-}
+// const slideLeft: FramerAnimation = {
+//     variants: {
+//         initial: {
+//             opacity: 0,
+//             left: "100vw",
+//             scale: 0.6
+//         },
+//         animate: {
+//             opacity: 1,
+//             left: 0,
+//             scale: 1
+//         },
+//         exit: {
+//             opacity: 0,
+//         }
+//     },
+//     transition: {
+//         duration: 0.5
+//     }
+// }
 
-const fade = {
-    name: "Fade",
+const fade: FramerAnimation = {
     variants: {
         initial: {
             opacity: 0,
@@ -113,10 +107,61 @@ const fade = {
     }
 }
 
+export const variants = {
+    initial: (custom: string) => 
+        {
+            switch(custom) {
+                case 'slideUp':
+                    return {top: "100vh"}
+                case 'slideDown':
+                    return {top: "-100vh"}
+                case 'slideRight':
+                    return {left: "-100vw"}
+                case 'slideLeft':
+                    return {left: "100vw"}    
+                default:
+                    return {opacity: 0}
+            }
+        } 
+    ,
+    animate: (custom: string) => {
+        {
+            switch(custom) {
+                case 'slideUp':
+                    return {top: "0vh"}
+                case 'slideDown':
+                    return {top: "0vh"}
+                case 'slideRight':
+                    return {left: "0vw"}
+                case 'slideLeft':
+                    return {left: "0vw"}    
+                default:
+                    return {opacity: 0}
+            }
+        }
+    },
+    exit: (custom: string) => {
+        {
+            switch(custom) {
+                case 'slideUp':
+                    return {top: "-100vh"}
+                case 'slideDown':
+                    return {top: "100vh"}
+                case 'slideRight':
+                    return {left: "100vw"}
+                case 'slideLeft':
+                    return {left: "-100vw"}    
+                default:
+                    return {opacity: 0}
+            }
+        }
+    }
+}
+
 export const framerAnimations: { [key: string]: FramerAnimation } = {
-    slideUp: slideUp,
-    slideDown: slideDown,
-    slideRight: slideRight,
-    slideLeft: slideLeft,
+    // slideUp: slideUp,
+    // slideDown: slideDown,
+    // slideRight: slideRight,
+    // slideLeft: slideLeft,
     fade: fade,
 }

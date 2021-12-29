@@ -16,6 +16,8 @@ const positionCSS: {
     'bottom': {
         content: {
             bottom: '5%',
+            left: '50%',
+            transform: 'translateX(-50%)',
             flexDirection: 'column',
         },
         moreArrows: {
@@ -25,6 +27,8 @@ const positionCSS: {
     'top': {
         content: {
             top: '5%',
+            left: '50%',
+            transform: 'translateX(-50%)',
             flexDirection: 'column-reverse',
         },
         moreArrows: {
@@ -34,6 +38,8 @@ const positionCSS: {
     'right': {
         content: {
             right: '5%',
+            top: '50%',
+            transform: 'translateY(-50%)',
             flexDirection: 'row'
         },
         moreArrows: {
@@ -43,6 +49,8 @@ const positionCSS: {
     'left': {
         content: {
             left: '5%',
+            top: '50%',
+            transform: 'translateY(-50%)',
             flexDirection: 'row-reverse'
         },
         moreArrows: {

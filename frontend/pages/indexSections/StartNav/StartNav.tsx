@@ -9,8 +9,11 @@ import { sectionProps } from '../../index';
 const StartNav = ({
     setActiveSection,
     handleTransition,
-    animation
+    transitionDirection,
+    transitionProps,
+    variants
 }: sectionProps) => {
+
     return (
         <m.div
             key="startNav"
@@ -18,8 +21,9 @@ const StartNav = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            variants={animation.variants}
-            transition={animation.transition}
+            custom={transitionDirection}
+            variants={variants}
+            transition={transitionProps}
         >
             <div className={`${styles.startNav} ${commonStyles.page}`}>
                 <ArrowButton
