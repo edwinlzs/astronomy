@@ -6,6 +6,7 @@ import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 import styles from './Meteors.module.scss';
 import commonStyles from '../commonStyles.module.scss';
 import { sectionProps } from '../../index';
+import MeteorShower from '../../../components/MeteorShower/MeteorShower';
 
 const Meteors = ({
     setActiveSection,
@@ -35,7 +36,7 @@ const Meteors = ({
                 position="right"
             />
             <div className={commonStyles.page}>
-                THIS IS A PLACEHOLDER; THERE WILL BE MORE CONTENT HERE NEXT TIME!
+                <MeteorShower />
             </div>
 
         </m.div>

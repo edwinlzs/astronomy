@@ -1,0 +1,30 @@
+.meteor {
+    position: absolute;
+    width: 200px;
+    height: 1px;
+    transform: rotate(-45deg);
+    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    animation-name: meteor;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; 
+}
+
+@keyframes meteor {
+    0% {
+        margin-left: 300px;
+        margin-top: -300px;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    60% {
+        margin-left: -300px;
+        margin-top: 300px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
