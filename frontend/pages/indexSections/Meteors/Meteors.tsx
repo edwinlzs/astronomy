@@ -2,11 +2,12 @@ import Image from 'next/image';
 import { m } from 'framer-motion';
 
 import ArrowButton from '../../../components/ArrowButton/ArrowButton';
+import MeteorShower from '../../../components/MeteorShower/MeteorShower';
+import DustCloudSim from '../../../components/DustCloudSim/DustCloudSim';
 
 import styles from './Meteors.module.scss';
 import commonStyles from '../commonStyles.module.scss';
 import { sectionProps } from '../../index';
-import MeteorShower from '../../../components/MeteorShower/MeteorShower';
 
 const Meteors = ({
     setActiveSection,
@@ -37,6 +38,12 @@ const Meteors = ({
             />
             <div className={commonStyles.page}>
                 <MeteorShower />
+                <DustCloudSim />
+                {/* <div className={styles.meteor1}/>
+                <div className={styles.meteor2}/>
+                <div className={styles.meteor3}/>
+                <div className={styles.meteor4}/>
+                <div className={styles.meteor5}/> */}
             </div>
 
         </m.div>

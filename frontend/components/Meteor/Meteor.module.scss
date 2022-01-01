@@ -1,27 +1,40 @@
 .meteor {
     position: absolute;
-    width: 200px;
-    height: 1px;
+    // width: 200px;
+    // height: 2px;
     transform: rotate(-45deg);
+    border-radius: 80%;
     background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
     animation-name: meteor;
     animation-timing-function: ease-in;
-    animation-duration: 2s;
-    animation-iteration-count: infinite; 
+    // animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    // &:before {
+    //     content: "";
+    //     position: absolute;
+    //     width: 4px;
+    //     height: 5px;
+    //     border-radius: 50%;
+    //     margin-top: -2px;
+    //     background: rgba(#fff,.7);
+    //     box-shadow: 0 0 12px 3px #fff;
+    // }
 }
 
 @keyframes meteor {
     0% {
         margin-left: 300px;
         margin-top: -300px;
-        opacity: 0;
-    }
-    15% {
+        // width: 0px;
+        transform: rotate(-45deg) scale(0.2);
         opacity: 1;
     }
-    60% {
+    50% {
         margin-left: -300px;
         margin-top: 300px;
+        // width: 200px;
+        transform: rotate(-45deg) scale(1.2);
         opacity: 0;
     }
     100% {

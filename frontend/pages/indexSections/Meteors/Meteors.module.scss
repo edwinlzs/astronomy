@@ -1,0 +1,77 @@
+@mixin meteor() {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: 200px auto;
+    background-position: center;
+
+    $name: meteorfall-#{unique-id()};
+    
+    @keyframes #{$name} {
+        @content;
+    }
+
+    animation-name: $name;
+    animation-timing-function: linear;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.meteor1 {
+    animation-delay: 1s;
+    background-image: url('../../../assets/meteor/Meteor1.png');
+    @include meteor {
+        0% {
+            top: -5%;
+            left: 90%;
+        }
+        50% {
+            top: -5% + 55%;
+            left: 90% - 60%;
+        }
+        100% {
+            top: -5% + calc(55%*2);
+            left: 90% - calc(60%*2);
+        }
+    }
+}
+
+.meteor2 {
+    animation-delay: 0s;
+    background-image: url('../../../assets/meteor/Meteor2.png');
+    @include meteor {
+        0% {
+            top: 20%;
+            left: 100%;
+        }
+        50% {
+            top: 20% + 40%;
+            left: 100% - 60%;
+        }
+        100% {
+            top: 20% + calc(40%*2);
+            left: 100% - calc(60%*2);
+        }
+    }
+}
+
+.meteor3 {
+    animation-delay: 2s;
+    background-image: url('../../../assets/meteor/Meteor3.svg');
+    @include meteor {
+        0% {
+            top: 0%;
+            left: 100%;
+        }
+        50% {
+            top: 0% + 30%;
+            left: 100% - 60%;
+        }
+        100% {
+            top: 0% + calc(30%*2);
+            left: 100% - calc(60%*2);
+        }
+    }
+}
