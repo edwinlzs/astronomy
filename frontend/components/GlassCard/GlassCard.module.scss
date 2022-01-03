@@ -1,0 +1,102 @@
+.container {
+    & .card {
+        border-radius: 3%;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+        height: 300px;
+        width: 250px;
+        position: absolute;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        transition: all .3s;
+    
+        &:before {
+            background-color: rgba(255, 255, 255, 0.05) ;
+            backdrop-filter: blur(3px) saturate(100%) contrast(95%) brightness(120%);
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+
+        &.falling {
+            animation-name: meteorfall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            &:hover {
+                border: 1px solid #fff;
+            }
+        }
+
+        &.selected {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 80vh;
+            width: 80vh;
+            opacity: 1;
+        }
+
+        & .cardImage {
+            flex: 2;
+            padding: 1rem;
+        }
+
+        & .cardTitle {
+            flex: 1;
+            font-size: 1.8rem;
+            color: #fff;
+            z-index: 2;
+            padding: .5rem 1rem 1.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        & .closeButton {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        & .selectedTitle {
+            flex: 2;
+            font-size: 1.8rem;
+            color: #fff;
+            z-index: 2;
+            padding: 1.5rem 1rem .5rem 1rem;
+        }
+
+        & .selectedContent {
+            flex: 4;
+            font-size: 1.1rem;
+            color: #fff;
+            z-index: 2;
+            padding: .5rem 1rem 1.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}
+
+$randomTop: random();
+$randomBottom: random();
+
+@keyframes meteorfall {
+    0% {
+        top: $randomTop*-20% + (1-$randomTop)*-40%;
+        left: $randomTop*-20% + (1-$randomTop)*-40%;
+    }
+    100% {
+        top: $randomTop*110% + (1-$randomTop)*130%;
+        left: $randomTop*110% + (1-$randomTop)*130%;
+    }
+}

@@ -3,11 +3,13 @@ import { m } from 'framer-motion';
 
 import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 import MeteorShower from '../../../components/MeteorShower/MeteorShower';
-import DustCloudSim from '../../../components/DustCloudSim/DustCloudSim';
 
 import styles from './Meteors.module.scss';
 import commonStyles from '../commonStyles.module.scss';
 import { sectionProps } from '../../index';
+import GlassCard from '../../../components/GlassCard/GlassCard';
+import Meteor1 from '/assets/meteor/Meteor1.png';
+import Meteor5 from '/assets/meteor/Meteor5.png';
 
 const Meteors = ({
     setActiveSection,
@@ -37,13 +39,19 @@ const Meteors = ({
                 position="right"
             />
             <div className={commonStyles.page}>
+                <GlassCard
+                    img={Meteor5}
+                    title="What is a Meteor?"
+                    animationDuration={10}
+                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
+                />
+                <GlassCard
+                    img={Meteor1}
+                    title="What are Meteor Showers?"
+                    animationDuration={8}
+                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
+                />
                 <MeteorShower />
-                <DustCloudSim />
-                {/* <div className={styles.meteor1}/>
-                <div className={styles.meteor2}/>
-                <div className={styles.meteor3}/>
-                <div className={styles.meteor4}/>
-                <div className={styles.meteor5}/> */}
             </div>
 
         </m.div>

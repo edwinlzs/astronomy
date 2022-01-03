@@ -5,36 +5,45 @@ import styles from './DustParticle.module.scss';
 type DustParticleProps ={
     startX: number;
     startY: number;
+    rangeX: number;
+    rangeY: number;
+    startAngle: number;
+    speed: number;
 }
 
 const DustParticle = ({
     startX,
-    startY
+    startY,
+    rangeX,
+    rangeY,
+    startAngle,
+    speed,
 }: DustParticleProps) => {
-    const rotateRadians = 0.785398;
-    const speed = 0.001;
-    const rangeX = 0.5;
-    const rangeY = 0.2;
-    const [angle, setAngle] = useState<number>(0);
+    const rotateAngle = 0.785398; // 45 deg radians
+    const [angle, setAngle] = useState<number>(startAngle);
     const [coords, setCoords] = useState<{x: number, y: number}>({
-        x: 1000,
-        y: 1000,
-    })
+        x: startX,
+        y: startY,
+    });
 
     useEffect(() => {
-        setCoords({
-            x: coords.x + (rangeX * Math.cos(angle)*Math.cos(rotateRadians) - rangeY * Math.sin(angle)*Math.sin(rotateRadians)),
-            y: coords.y + (rangeX * Math.cos(angle)*Math.sin(rotateRadians) + rangeY * Math.sin(angle)*Math.cos(rotateRadians)),
-        })
-        setAngle(angle + speed);
-    }, [coords, angle])
+        const interval = setInterval(() => {
+            setCoords({
+                x: coords.x + (rangeX * Math.cos(angle)*Math.cos(rotateAngle) - rangeY * Math.sin(angle)*Math.sin(rotateAngle)),
+                y: coords.y + (rangeX * Math.cos(angle)*Math.sin(rotateAngle) + rangeY * Math.sin(angle)*Math.cos(rotateAngle)),
+            })
+            setAngle(angle + speed);
+        }, 20);
+        return () => clearInterval(interval);
+    });
 
+        
     return <div
     className={styles.particle}
     style={{
-        top: `${coords.x}px`,
-        left: `${coords.y}px`
-    }}
+        top: `${coords.x}%`,
+        left: `${coords.y}%`
+    }} 
     />
 }
 
