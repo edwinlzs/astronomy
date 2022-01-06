@@ -60,7 +60,7 @@ const StartNav = ({
                 />
                 <div className={styles.startNavTitle}>
                     <span className={styles.header}>Astronomy</span>
-                    <span className={styles.subheader}>an introduction.</span>
+                    <span className={styles.subheader}>an exploratory project.</span>
                 </div>
             </div >
         </m.div>

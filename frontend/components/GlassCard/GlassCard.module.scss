@@ -1,10 +1,15 @@
 .container {
+    position: relative;
+    top: 0;
+    left: 0;
+
     & .card {
         border-radius: 3%;
         box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(3px) saturate(100%) contrast(95%) brightness(120%);
         height: 300px;
         width: 250px;
-        position: absolute;
+        position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -13,36 +18,43 @@
     
         &:before {
             background-color: rgba(255, 255, 255, 0.05) ;
-            backdrop-filter: blur(3px) saturate(100%) contrast(95%) brightness(120%);
+            // backdrop-filter: blur(3px) saturate(100%) contrast(95%) brightness(120%);
             content: '';
             height: 100%;
             width: 100%;
             position: absolute;
         }
 
-        &.falling {
-            animation-name: meteorfall;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-
-            &:hover {
-                border: 1px solid #fff;
-            }
+        &.unselected:hover {
+            transform: scale(1.2);
         }
 
         &.selected {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             height: 80vh;
             width: 80vh;
             opacity: 1;
+            z-index: 3;
+            backdrop-filter: blur(10px) saturate(30%) contrast(95%) brightness(120%);
+
+            &:before {
+                // backdrop-filter: blur(10px) saturate(90%) contrast(95%) brightness(120%);
+            }
+
+            & .cardImage {
+                width: 60vh;
+                height: 40vh;
+            }
         }
 
         & .cardImage {
-            flex: 2;
+            flex: 1;
             padding: 1rem;
+            width: 220px;
+            height: 150px;
         }
 
         & .cardTitle {
@@ -84,19 +96,5 @@
             align-items: center;
             text-align: center;
         }
-    }
-}
-
-$randomTop: random();
-$randomBottom: random();
-
-@keyframes meteorfall {
-    0% {
-        top: $randomTop*-20% + (1-$randomTop)*-40%;
-        left: $randomTop*-20% + (1-$randomTop)*-40%;
-    }
-    100% {
-        top: $randomTop*110% + (1-$randomTop)*130%;
-        left: $randomTop*110% + (1-$randomTop)*130%;
     }
 }

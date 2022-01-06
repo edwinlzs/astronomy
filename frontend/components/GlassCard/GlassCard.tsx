@@ -9,11 +9,10 @@ type GlassCardProps = {
     img: StaticImageData;
     title: string;
     content: string;
-    animationDuration: number;
     children?: ReactChildren;
 }
 
-const GlassCard = ({ img, title, content, animationDuration, children }: GlassCardProps) => {
+const GlassCard = ({ img, title, content, children }: GlassCardProps) => {
     const [selected, setSelected] = useState<boolean>(false);
     const overlay = useRef(null);
 
@@ -29,10 +28,7 @@ const GlassCard = ({ img, title, content, animationDuration, children }: GlassCa
             style={selected ? undefined : { cursor: 'pointer' }}
         >
             <div
-            className={`${styles.card} ${selected ? styles.selected : styles.falling}`}
-            style={{
-                animationDuration: `${animationDuration}s`
-            }}
+            className={`${styles.card} ${selected ? styles.selected : styles.unselected}`}
             >
                 {selected ?
                     <>
@@ -49,7 +45,7 @@ const GlassCard = ({ img, title, content, animationDuration, children }: GlassCa
                     ''
                 }
                 <div className={styles.cardImage}>
-                    <Image src={img} alt="" />
+                    <Image src={img} alt="" layout='responsive' />
                 </div>
                 {selected ?
                     <div className={styles.selectedContent}>

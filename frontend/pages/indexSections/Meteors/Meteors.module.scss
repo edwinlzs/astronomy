@@ -1,3 +1,9 @@
+.gallery {
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+}
+
 @mixin meteor() {
     position: absolute;
     transform: translate(-50%, -50%);

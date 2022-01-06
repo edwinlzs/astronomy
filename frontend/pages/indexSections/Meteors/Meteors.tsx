@@ -9,6 +9,7 @@ import commonStyles from '../commonStyles.module.scss';
 import { sectionProps } from '../../index';
 import GlassCard from '../../../components/GlassCard/GlassCard';
 import Meteor1 from '/assets/meteor/Meteor1.png';
+import Meteor2 from '/assets/meteor/Meteor2.png';
 import Meteor5 from '/assets/meteor/Meteor5.png';
 
 const Meteors = ({
@@ -39,18 +40,23 @@ const Meteors = ({
                 position="right"
             />
             <div className={commonStyles.page}>
-                <GlassCard
-                    img={Meteor5}
-                    title="What is a Meteor?"
-                    animationDuration={10}
-                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
-                />
-                <GlassCard
-                    img={Meteor1}
-                    title="What are Meteor Showers?"
-                    animationDuration={8}
-                    content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
-                />
+                <div className={styles.gallery}>
+                    <GlassCard
+                        img={Meteor5}
+                        title="What is a Meteor?"
+                        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
+                    />
+                    <GlassCard
+                        img={Meteor1}
+                        title="What are Meteor Showers?"
+                        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
+                    />
+                    <GlassCard
+                        img={Meteor2}
+                        title="How dangerous are meteors?"
+                        content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quis odio accusamus reiciendis temporibus. Molestias reiciendis assumenda iste numquam eveniet?"
+                    />
+                </div>
                 <MeteorShower />
             </div>
 
